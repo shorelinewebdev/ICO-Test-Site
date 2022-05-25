@@ -58,9 +58,16 @@
     padding: 10px 14px;
     border-radius: 30px;
     font-family: Poppins;
+    cursor: pointer;
+    transition: 0.15ms;
    
 }
 
 .buy-now-button-2 {
     margin-left: 15px;
+}
+
+.view-price-button:hover, .buy-now-button-2:hover {
+    opacity: 0.8;
+
 }

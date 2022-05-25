@@ -3,3 +3,7 @@ body {
     color: rgb(50, 50, 50);
 }
 
+a {
+    color: white;
+    text-decoration: none;
+}

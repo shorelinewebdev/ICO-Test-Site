@@ -42,8 +42,11 @@
     justify-content: center;
     align-items: center;
     position: relative;
+    cursor: pointer;
     
 }
+
+
 
 .home-button, .tokenomics-button, .faq-button {
     padding: 4px 6px;
@@ -63,5 +66,11 @@
     padding: 12px 16px;
     border-radius: 30px;
     font-family: Poppins;
+    transition: 0.15ms;
     
+}
+
+.buy-button:hover {
+    opacity: 0.8;
+
 }

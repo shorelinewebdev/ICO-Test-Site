@@ -29,7 +29,8 @@
                 <button class="home-button">Home</button>
                 <button class="tokenomics-button">Tokenomics</button>
                 <button class="faq-button">FAQ</button>
-                <button class="buy-button">Buy Now</button>
+                <button id="buy" class="buy-button">Buy Now</button>
+                
 
             
         </nav>
@@ -39,6 +40,8 @@
 
     <main class="main">
 
+       
+
         <div class="left">
 
             <h3 class="subtitle">Introducing</h3>
@@ -47,8 +50,8 @@
                 chains with a controlled supply to insure a stable price for convenient & simple transactions.</p>
                
                 <div class="button-container">
-                    <button class="view-price-button">View  Price</button>
-                    <button class="buy-now-button-2">Buy Now</button>
+                    <button class="view-price-button"><a href='https://goerli.etherscan.io/address/0x256670f61964b0FFfDdd7E306D9f16DA1b90Bf39''>Contract</a></button>
+                    <button id="buy-2" class="buy-now-button-2">Buy Now</button>
                  </div>
 
         </div>
@@ -114,6 +117,10 @@
 
                     </div>
 
+                    <div class="price-info">
+                        <p> Price </p>
+                        <p>1 USDC per NOVA</p>
+                    </div>
 
 
                 </div>
@@ -124,16 +131,33 @@
 
                 </div>
                 
+                <div class="add-to-wallet-popup">
+
+                    <div class="add-to-wallet-div">
+    
+                        <button class="add-to-wallet">Add NOVA to Wallet</button>
+    
+                    </div>
+    
+                </div>
                     
 
                     
             </div>
 
+
+          
+
         </div>
+    
+    <section class="tokenomics">
+
+    </section>
 
     </main>
 
     <script src="index.js"></script>
+    <script src="popup.js"></script>
 
 </body>
 
