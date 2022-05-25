@@ -31,7 +31,7 @@
 .down-arrow {
     font-size: 35px;
     color: blue;
-    margin-top: 35px;
+    margin-top: 15px;
     padding: zero
 ;
 }
@@ -136,6 +136,8 @@ input[type=number] {
     justify-content: space-between;
     margin-left: 10px;
     margin-right: 10px;
+    padding: zero;
+    margin-top: -20px;
 }
 
 .to-input {
@@ -204,4 +206,16 @@ input[type=number] {
 .nova-logo {
     width: 24px;
     padding-right: 10px;
+}
+
+.buy-nova {
+    border: 1px blue solid;
+    background-color: rgba(255, 255, 255, 0);
+    font-weight: 500;
+    color: blue;
+    padding: 10px 75px;
+    border-radius: 12px;
+    font-family: Poppins;
+    font-size: 24px;
+    margin-top: 35px;
 }
