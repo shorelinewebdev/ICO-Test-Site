@@ -1,0 +1,207 @@
+.popup {
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0, 0, 0, 0.7);
+    position: absolute;
+    top: 0;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.popup-content {
+    width: 500px;
+    height: 500px;
+    background-color: white;
+    border-radius: 10px;
+    text-align: center;
+    padding: 20px;
+    position: relative;
+
+}
+
+.close {
+    position: absolute;
+    top: 0;
+    right: 14px;
+    font-size: 24px;
+    transform: rotate(45deg);
+}
+
+.down-arrow {
+    font-size: 35px;
+    color: blue;
+    margin-top: 35px;
+    padding: zero
+;
+}
+
+.from-container {
+    display: flexbox;
+    flex-direction: row;
+    justify-content: space-between;
+    
+
+}
+
+.from-info {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    margin-left: 10px;
+    margin-right: 10px;
+}
+
+.from-input {
+    display: flex; 
+  
+    flex-direction: row;
+    justify-content: space-between;
+    align-items: center;
+    background-color: blue;
+    border-radius: 20px;
+    border: 1px rgb(255, 255, 255) solid;
+    filter: drop-shadow(0px 0px 7px rgba(0, 0, 0, 0.155));
+}
+
+.spend-amount {
+    width: 100px;
+    background-color: blue;
+    border: none;
+    color: white;
+    font-size: 30px;
+
+}
+textarea:focus, input:focus{
+    outline: none;
+}
+input::-webkit-outer-spin-button,
+input::-webkit-inner-spin-button {
+  -webkit-appearance: none;
+  margin: 0;
+}
+
+
+input[type=number] {
+  -moz-appearance: textfield;
+}
+
+.spend-amount::placeholder {
+    color: rgba(255, 255, 255, 0.8);
+    font-size: 30px;
+    
+}
+
+.from-spend-div {
+   
+    margin-left: 20px;
+}
+
+.from-input-div-info {
+    
+    display: flex; 
+    flex-direction: row;
+    justify-content: flex-end;
+    align-items: center;
+    border: 1px red solid;
+    margin-right: 20px;
+    
+}
+
+.usdc-text {
+    
+    color: white;
+    font-size: 20px;
+
+}
+
+.usdc-logo {
+    width: 24px;
+    padding-right: 10px;
+}
+
+/*start of to section*/
+
+.to-container {
+    display: flexbox;
+    flex-direction: row;
+    justify-content: space-between;
+    
+
+}
+
+.to-info {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    margin-left: 10px;
+    margin-right: 10px;
+}
+
+.to-input {
+    display: flex; 
+  
+    flex-direction: row;
+    justify-content: space-between;
+    align-items: center;
+    background-color: blue;
+    border-radius: 20px;
+    border: 1px rgb(255, 255, 255) solid;
+    filter: drop-shadow(0px 0px 7px rgba(0, 0, 0, 0.155));
+}
+
+.receive-amount {
+    width: 100px;
+    background-color: blue;
+    border: none;
+    color: white;
+    font-size: 30px;
+
+}
+textarea:focus, input:focus{
+    outline: none;
+}
+input::-webkit-outer-spin-button,
+input::-webkit-inner-spin-button {
+  -webkit-appearance: none;
+  margin: 0;
+}
+
+
+input[type=number] {
+  -moz-appearance: textfield;
+}
+
+.receive-amount::placeholder {
+    color: rgba(255, 255, 255, 0.8);
+    font-size: 30px;
+    
+}
+
+.to-receive-div {
+   
+    margin-left: 20px;
+}
+
+.to-input-div-info {
+    
+    display: flex; 
+    flex-direction: row;
+    justify-content: flex-end;
+    align-items: center;
+    border: 1px red solid;
+    margin-right: 20px;
+    
+}
+
+.nova-text {
+    
+    color: white;
+    font-size: 20px;
+
+}
+
+.nova-logo {
+    width: 24px;
+    padding-right: 10px;
+}

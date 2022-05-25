@@ -1,14 +1,6 @@
-const helloBtn = document.getElementById("hello-btn")
-const messageEl = document.getElementById("message-el")
-
-helloBtn.addEventListener("click", function(){
-   
-    messageEl.textContent += "Hello World "
-
-    
-})
-
-//hey alex
-//hey matt
-//testing on my branch -alexander
-//100
+function isNumberKey(evt){
+    var charCode = (evt.which) ? evt.which : evt.keyCode;
+    if (charCode > 31 && (charCode < 48 || charCode > 57))
+        return false;
+    return true;
+}
