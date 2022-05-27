@@ -246,3 +246,9 @@ input[type=number] {
     cursor: pointer;
     
 }
+
+.account-text {
+    margin: -5px;
+    font-size: 15px;
+    color: blue;
+}

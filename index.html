@@ -1,6 +1,7 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
+    <script src="node_modules/web3/dist/web3.min.js"></script>
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -30,7 +31,7 @@
                 <button class="tokenomics-button">Tokenomics</button>
                 <button class="faq-button">FAQ</button>
                 <button id="buy" class="buy-button">Buy Now</button>
-                <button id="connect" class="connect-btn">Connect</button>
+                <button id="connect" onclick="loginWithEth()" class="connect-btn">Connect</button>
                 
 
             
@@ -127,10 +128,13 @@
                 </div>
                 
                 <div class="buy-nova-div">
-
+                    <h2 class="account-text">Account: <span class="showAccount"></span></h2>
                     <button class="buy-nova">Buy</button>
+                    
 
                 </div>
+
+               
                 
                 <div class="add-to-wallet-popup">
 
@@ -157,8 +161,15 @@
 
     </main>
 
+    
+
+    
+
+    <script src="web3app.js"></script>
     <script src="index.js"></script>
     <script src="popup.js"></script>
+    <!-- <script src="web3app.js"></script>
+    
 
 </body>
 
