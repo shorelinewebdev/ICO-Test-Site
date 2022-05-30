@@ -31,7 +31,7 @@
                 <button class="tokenomics-button">Tokenomics</button>
                 <button class="faq-button">FAQ</button>
                 <button id="buy" class="buy-button">Buy Now</button>
-                <button id="connect" onclick="loginWithEth()" class="connect-btn">Connect</button>
+                <button id="connect" class="connect-btn"  onclick="connect()" >Connect</button>
                 
 
             
@@ -108,8 +108,15 @@
                     </div>
 
                     <div class="to-input">
-                            <div class="to-receive-div">
-                                <input class=" receive-amount" placeholder = "0.00" type="text" size=20 maxlength=6 onkeypress='return isNumberKey(event)'>
+                        
+                            <div id="input" class="to-receive-div">
+                                <form id="tokenBuy">
+                                    <input id="input" class=" receive-amount" placeholder = "0.00" type="text" size=20 maxlength=6 onkeypress='return isNumberKey(event)'>
+                                    <input id="submitBtn" type="submit" value="Request"/>
+                                </form>
+                              
+                              
+                                
                             </div>
 
                             <div class="to-input-div-info">
@@ -127,11 +134,17 @@
 
                 </div>
                 
+        
+
                 <div class="buy-nova-div">
                     <h2 class="account-text">Account: <span class="showAccount"></span></h2>
-                    <button class="buy-nova">Buy</button>
                     
-
+                    
+                        
+                        <input class="buy-nova" id="submitBtn" type="submit" value="Buy"/>
+                    
+                    
+                    
                 </div>
 
                
@@ -140,7 +153,7 @@
 
                     <div class="add-to-wallet-div">
     
-                        <button class="add-to-wallet">Add NOVA to Wallet</button>
+                        <button onclick="addTokenFunction()" class="add-to-wallet">Add NOVA to Wallet</button>
     
                     </div>
     
@@ -166,6 +179,7 @@
     
 
     <script src="web3app.js"></script>
+    <script src="addToMetaMask.js"></script>
     <script src="index.js"></script>
     <script src="popup.js"></script>
     <!-- <script src="web3app.js"></script>
