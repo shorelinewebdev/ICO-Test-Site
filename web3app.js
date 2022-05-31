@@ -38,21 +38,16 @@ function getAccounts(callback) {
 // retrieve account address
 getAccounts(function(result) {
   console.log(result[0]);
-  addressArray.push(result[0]);
-  
-  
+ 
 });
 
 
 
 const contractAddress = "0x1a0E6664D47218F2a31Ea3220A834EDF98da5884"; //contract address\
 
-let addressArray = [];
-
-const minter_address = addressArray.split('');
 
 
-
+let minter_address = "0xb14969b2eCA9733150fFF0C2e9b45844A25e371F";
 
 
 
