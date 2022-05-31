@@ -5,7 +5,7 @@ if (typeof web3 !== 'undefined') {
   console.log(web3.eth.accounts);
 
 } else {
-  web3 = new Web3(new Web3.providers.HttpProvider('http://localhost:8545'));
+  web3 = new Web3(new Web3.providers.HttpProvider('https://goerli.infura.io/v3/a563c008f9504d33bce5075a3100da08'));
   
 }
 
