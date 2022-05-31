@@ -1,4 +1,16 @@
 
+
+if (typeof web3 !== 'undefined') {
+  web3 = new Web3(ethereum);
+  console.log(web3.eth.accounts);
+
+} else {
+  web3 = new Web3(new Web3.providers.HttpProvider('http://localhost:8545'));
+  
+}
+
+const connectBtn = document.getElementById("connect")
+
 var web3;
     
 async function connect() {
@@ -6,29 +18,43 @@ async function connect() {
     if (window.ethereum) {
        await window.ethereum.send('eth_requestAccounts');
        window.web3 = new Web3(window.ethereum);
+       connectBtn.innerHTML = "Connected";
+      
     }
 }
 
 
+// get account address
+function getAccounts(callback) {
+  web3.eth.getAccounts((error,result) => {
+      if (error) {
+          console.log(error);
+      } else {
+          callback(result);
+      }
+  });
+}
 
-//check for metamask
-
-
-  if (typeof web3 !== 'undefined') {
-    web3 = new Web3(ethereum);
-    console.log(web3.eth.accounts);
+// retrieve account address
+getAccounts(function(result) {
+  console.log(result[0]);
+  addressArray.push(result[0]);
   
-  } else {
-    web3 = new Web3(new Web3.providers.HttpProvider('http://localhost:8545'));
-  }
   
+});
+
+
+
+const contractAddress = "0x1a0E6664D47218F2a31Ea3220A834EDF98da5884"; //contract address\
+
+let addressArray = [];
+
+const minter_address = addressArray.split('');
 
 
 
 
 
-const address = "0x1a0E6664D47218F2a31Ea3220A834EDF98da5884"; //contract address
-let minter_address = "0xb14969b2eCA9733150fFF0C2e9b45844A25e371F"; // Minter address
 
 const contract = new web3.eth.Contract([
 {
@@ -253,7 +279,7 @@ const contract = new web3.eth.Contract([
   "stateMutability": "nonpayable",
   "type": "function"
 }
-], address)
+], contractAddress)
 
 console.log(contract);
 
@@ -266,12 +292,19 @@ async function claim(amount) {
   
 }
 
-const form = document.getElementById("tokenBuy");
-form.addEventListener('submit', (event) => {
+const buyNova = document.getElementById("submitBtn");
+
+buyNova.addEventListener('click', (event) => {
     event.preventDefault();
-    console.log(form.input.value);
-    claim(form.input.value);
+    let tokenInput = document.getElementById("input").value;
+    claim(tokenInput);
+    console.log(tokenInput);
 })
+
+
+
+
+
   
 //   async function getAccount() {
 //    const accounts = await ethereum.request({ method: 'eth_requestAccounts' });
