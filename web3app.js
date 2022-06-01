@@ -1,5 +1,5 @@
 
-
+//check if web3
 if (typeof web3 !== 'undefined') {
   web3 = new Web3(ethereum);
   console.log(web3.eth.accounts);
@@ -10,7 +10,10 @@ if (typeof web3 !== 'undefined') {
 }
 
 const connectBtn = document.getElementById("connect")
+const walletAddress = document.getElementById("wallet-address")
+let addressArray = []
 
+//connect to wallet
 var web3;
     
 async function connect() {
@@ -19,38 +22,18 @@ async function connect() {
        await window.ethereum.send('eth_requestAccounts');
        window.web3 = new Web3(window.ethereum);
        connectBtn.innerHTML = "Connected";
+       getAccount()
+       
+      }
       
     }
-}
 
-
-// get account address
-function getAccounts(callback) {
-  web3.eth.getAccounts((error,result) => {
-      if (error) {
-          console.log(error);
-      } else {
-          callback(result);
-      }
-  });
-}
-
-// retrieve account address
-getAccounts(function(result) {
-  console.log(result[0]);
- 
-});
-
-
-
-const contractAddress = "0x1a0E6664D47218F2a31Ea3220A834EDF98da5884"; //contract address\
-
-
-
+    
+const contractAddress = "0x1a0E6664D47218F2a31Ea3220A834EDF98da5884"; //contract address
 let minter_address = "0xb14969b2eCA9733150fFF0C2e9b45844A25e371F";
 
 
-
+// the smart contract ABI with the contract address toghether in a variable
 const contract = new web3.eth.Contract([
 {
   "anonymous": false,
@@ -287,6 +270,7 @@ async function claim(amount) {
   
 }
 
+//triggers transaction
 const buyNova = document.getElementById("submitBtn");
 
 buyNova.addEventListener('click', (event) => {
@@ -296,17 +280,23 @@ buyNova.addEventListener('click', (event) => {
     console.log(tokenInput);
 })
 
+//displays eth balance & account number
+let ethBalance = document.getElementById("eth-balance")
 
-
-
-
+  async function getAccount() {
+   const accounts = await ethereum.request({ method: 'eth_requestAccounts' });
+   const account = accounts[0];
+   walletAddress.innerHTML += account;
+   web3.eth.getBalance(account, function(err, result) {
+    if (err) {
+      console.log(err)
+    } else {
+      ethBalance.innerHTML += web3.utils.fromWei(result, "ether") + " ETH"
+      console.log(web3.utils.fromWei(result, "ether") + " ETH")
+    }
+  })
   
-//   async function getAccount() {
-//    const accounts = await ethereum.request({ method: 'eth_requestAccounts' });
-//    const account = accounts[0];
-//    showAccount.innerHTML = account;
-//  }
+ }
 
 
-
-
+ 

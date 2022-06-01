@@ -247,8 +247,8 @@ input[type=number] {
     
 }
 
-.account-text {
+.address-text {
     margin: -5px;
-    font-size: 15px;
+    font-size: 10px;
     color: blue;
 }
