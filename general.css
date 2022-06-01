@@ -1,6 +1,8 @@
 body {
     font-family: Poppins;
     color: rgb(50, 50, 50);
+    background-image: url(assets/novabackground.jpg);
+    background-size: cover;
 }
 
 a {
