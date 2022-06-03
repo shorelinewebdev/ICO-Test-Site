@@ -29,235 +29,242 @@ async function connect() {
     }
 
     
-const contractAddress = "0x1a0E6664D47218F2a31Ea3220A834EDF98da5884"; //contract address
-let minter_address = "0xb14969b2eCA9733150fFF0C2e9b45844A25e371F";
+const contractAddress = "0x56F808F58b9F2874F26d289208e8458987418c23"; //contract address
 
 
 // the smart contract ABI with the contract address toghether in a variable
 const contract = new web3.eth.Contract([
-{
-  "anonymous": false,
-  "inputs": [
-    {
-      "indexed": true,
-      "internalType": "address",
-      "name": "_owner",
-      "type": "address"
-    },
-    {
-      "indexed": true,
-      "internalType": "address",
-      "name": "_spender",
-      "type": "address"
-    },
-    {
-      "indexed": false,
-      "internalType": "uint256",
-      "name": "_value",
-      "type": "uint256"
-    }
-  ],
-  "name": "Approval",
-  "type": "event"
-},
-{
-  "anonymous": false,
-  "inputs": [
-    {
-      "indexed": true,
-      "internalType": "address",
-      "name": "_from",
-      "type": "address"
-    },
-    {
-      "indexed": true,
-      "internalType": "address",
-      "name": "_to",
-      "type": "address"
-    },
-    {
-      "indexed": false,
-      "internalType": "uint256",
-      "name": "_value",
-      "type": "uint256"
-    }
-  ],
-  "name": "Transfer",
-  "type": "event"
-},
-{
-  "inputs": [
-    {
-      "internalType": "address",
-      "name": "_owner",
-      "type": "address"
-    },
-    {
-      "internalType": "address",
-      "name": "_spender",
-      "type": "address"
-    }
-  ],
-  "name": "allowance",
-  "outputs": [
-    {
-      "internalType": "uint256",
-      "name": "remaining",
-      "type": "uint256"
-    }
-  ],
-  "stateMutability": "view",
-  "type": "function"
-},
-{
-  "inputs": [
-    {
-      "internalType": "address",
-      "name": "_spender",
-      "type": "address"
-    },
-    {
-      "internalType": "uint256",
-      "name": "_value",
-      "type": "uint256"
-    }
-  ],
-  "name": "approve",
-  "outputs": [
-    {
-      "internalType": "bool",
-      "name": "success",
-      "type": "bool"
-    }
-  ],
-  "stateMutability": "nonpayable",
-  "type": "function"
-},
-{
-  "inputs": [
-    {
-      "internalType": "address",
-      "name": "_owner",
-      "type": "address"
-    }
-  ],
-  "name": "balanceOf",
-  "outputs": [
-    {
-      "internalType": "uint256",
-      "name": "balance",
-      "type": "uint256"
-    }
-  ],
-  "stateMutability": "view",
-  "type": "function"
-},
-{
-  "inputs": [],
-  "name": "decimals",
-  "outputs": [
-    {
-      "internalType": "uint8",
-      "name": "",
-      "type": "uint8"
-    }
-  ],
-  "stateMutability": "view",
-  "type": "function"
-},
-{
-  "inputs": [],
-  "name": "name",
-  "outputs": [
-    {
-      "internalType": "string",
-      "name": "",
-      "type": "string"
-    }
-  ],
-  "stateMutability": "view",
-  "type": "function"
-},
-{
-  "inputs": [],
-  "name": "symbol",
-  "outputs": [
-    {
-      "internalType": "string",
-      "name": "",
-      "type": "string"
-    }
-  ],
-  "stateMutability": "view",
-  "type": "function"
-},
-{
-  "inputs": [],
-  "name": "totalSupply",
-  "outputs": [
-    {
-      "internalType": "uint256",
-      "name": "",
-      "type": "uint256"
-    }
-  ],
-  "stateMutability": "view",
-  "type": "function"
-},
-{
-  "inputs": [
-    {
-      "internalType": "address",
-      "name": "_to",
-      "type": "address"
-    },
-    {
-      "internalType": "uint256",
-      "name": "_value",
-      "type": "uint256"
-    }
-  ],
-  "name": "transfer",
-  "outputs": [
-    {
-      "internalType": "bool",
-      "name": "success",
-      "type": "bool"
-    }
-  ],
-  "stateMutability": "nonpayable",
-  "type": "function"
-},
-{
-  "inputs": [
-    {
-      "internalType": "address",
-      "name": "_from",
-      "type": "address"
-    },
-    {
-      "internalType": "address",
-      "name": "_to",
-      "type": "address"
-    },
-    {
-      "internalType": "uint256",
-      "name": "_value",
-      "type": "uint256"
-    }
-  ],
-  "name": "transferFrom",
-  "outputs": [
-    {
-      "internalType": "bool",
-      "name": "success",
-      "type": "bool"
-    }
-  ],
-  "stateMutability": "nonpayable",
-  "type": "function"
-}
-], contractAddress)
+	{
+		"constant": false,
+		"inputs": [],
+		"name": "buyTokens",
+		"outputs": [],
+		"payable": true,
+		"stateMutability": "payable",
+		"type": "function"
+	},
+	{
+		"constant": false,
+		"inputs": [],
+		"name": "destroy",
+		"outputs": [],
+		"payable": false,
+		"stateMutability": "nonpayable",
+		"type": "function"
+	},
+	{
+		"constant": false,
+		"inputs": [],
+		"name": "initialize",
+		"outputs": [],
+		"payable": false,
+		"stateMutability": "nonpayable",
+		"type": "function"
+	},
+	{
+		"constant": false,
+		"inputs": [
+			{
+				"name": "newOwner",
+				"type": "address"
+			}
+		],
+		"name": "transferOwnership",
+		"outputs": [],
+		"payable": false,
+		"stateMutability": "nonpayable",
+		"type": "function"
+	},
+	{
+		"inputs": [
+			{
+				"name": "_tokenAddr",
+				"type": "address"
+			}
+		],
+		"payable": false,
+		"stateMutability": "nonpayable",
+		"type": "constructor"
+	},
+	{
+		"payable": true,
+		"stateMutability": "payable",
+		"type": "fallback"
+	},
+	{
+		"anonymous": false,
+		"inputs": [
+			{
+				"indexed": true,
+				"name": "to",
+				"type": "address"
+			},
+			{
+				"indexed": false,
+				"name": "value",
+				"type": "uint256"
+			}
+		],
+		"name": "BoughtTokens",
+		"type": "event"
+	},
+	{
+		"constant": true,
+		"inputs": [],
+		"name": "CAP",
+		"outputs": [
+			{
+				"name": "",
+				"type": "uint256"
+			}
+		],
+		"payable": false,
+		"stateMutability": "view",
+		"type": "function"
+	},
+	{
+		"constant": true,
+		"inputs": [],
+		"name": "DAYS",
+		"outputs": [
+			{
+				"name": "",
+				"type": "uint256"
+			}
+		],
+		"payable": false,
+		"stateMutability": "view",
+		"type": "function"
+	},
+	{
+		"constant": true,
+		"inputs": [],
+		"name": "goalReached",
+		"outputs": [
+			{
+				"name": "",
+				"type": "bool"
+			}
+		],
+		"payable": false,
+		"stateMutability": "view",
+		"type": "function"
+	},
+	{
+		"constant": true,
+		"inputs": [],
+		"name": "initialized",
+		"outputs": [
+			{
+				"name": "",
+				"type": "bool"
+			}
+		],
+		"payable": false,
+		"stateMutability": "view",
+		"type": "function"
+	},
+	{
+		"constant": true,
+		"inputs": [],
+		"name": "initialTokens",
+		"outputs": [
+			{
+				"name": "",
+				"type": "uint256"
+			}
+		],
+		"payable": false,
+		"stateMutability": "view",
+		"type": "function"
+	},
+	{
+		"constant": true,
+		"inputs": [],
+		"name": "isActive",
+		"outputs": [
+			{
+				"name": "",
+				"type": "bool"
+			}
+		],
+		"payable": false,
+		"stateMutability": "view",
+		"type": "function"
+	},
+	{
+		"constant": true,
+		"inputs": [],
+		"name": "owner",
+		"outputs": [
+			{
+				"name": "",
+				"type": "address"
+			}
+		],
+		"payable": false,
+		"stateMutability": "view",
+		"type": "function"
+	},
+	{
+		"constant": true,
+		"inputs": [],
+		"name": "raisedAmount",
+		"outputs": [
+			{
+				"name": "",
+				"type": "uint256"
+			}
+		],
+		"payable": false,
+		"stateMutability": "view",
+		"type": "function"
+	},
+	{
+		"constant": true,
+		"inputs": [],
+		"name": "RATE",
+		"outputs": [
+			{
+				"name": "",
+				"type": "uint256"
+			}
+		],
+		"payable": false,
+		"stateMutability": "view",
+		"type": "function"
+	},
+	{
+		"constant": true,
+		"inputs": [],
+		"name": "START",
+		"outputs": [
+			{
+				"name": "",
+				"type": "uint256"
+			}
+		],
+		"payable": false,
+		"stateMutability": "view",
+		"type": "function"
+	},
+	{
+		"constant": true,
+		"inputs": [],
+		"name": "tokensAvailable",
+		"outputs": [
+			{
+				"name": "",
+				"type": "uint256"
+			}
+		],
+		"payable": false,
+		"stateMutability": "view",
+		"type": "function"
+	}
+]
+
+, contractAddress)
 
 console.log(contract);
 
@@ -266,7 +273,8 @@ console.log(contract);
 async function claim(amount) {
   const accounts = await window.ethereum.request({method: 'eth_requestAccounts'});
   const account = accounts[0];
-  const tx = await contract.methods.transferFrom(minter_address, account, amount).send({from:account});
+  //const tx = await contract.methods.transfer(account, amount).send({from:account});
+  const tx = web3.eth.sendTransaction({from:account, to:contractAddress, value:(amount*10**18), chain:"goerli"});
   
 }
 
@@ -275,9 +283,9 @@ const buyNova = document.getElementById("submitBtn");
 
 buyNova.addEventListener('click', (event) => {
     event.preventDefault();
-    let tokenInput = document.getElementById("input").value;
-    claim(tokenInput);
-    console.log(tokenInput);
+    let amount = document.getElementById("input").value;
+    claim(amount);
+    console.log(amount);
 })
 
 //displays eth balance & account number
