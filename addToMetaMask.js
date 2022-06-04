@@ -1,6 +1,6 @@
-const tokenAddress = '0x1a0E6664D47218F2a31Ea3220A834EDF98da5884';
-const tokenSymbol = 'xNOVA';
-const tokenDecimals = 0;
+const tokenAddress = '0xb285195e8c41c42d81896514F148a032Ac0101Bf';
+const tokenSymbol = 'NOVA';
+const tokenDecimals = 18;
 
 
 async function addTokenFunction() {

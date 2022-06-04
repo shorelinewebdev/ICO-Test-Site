@@ -29,7 +29,7 @@ async function connect() {
     }
 
     
-const contractAddress = "0x56F808F58b9F2874F26d289208e8458987418c23"; //contract address
+const contractAddress = "0x929fAB33EA6A6911da4821a14f052FE377cc27e6"; //contract address
 
 
 // the smart contract ABI with the contract address toghether in a variable
@@ -273,7 +273,6 @@ console.log(contract);
 async function claim(amount) {
   const accounts = await window.ethereum.request({method: 'eth_requestAccounts'});
   const account = accounts[0];
-  //const tx = await contract.methods.transfer(account, amount).send({from:account});
   const tx = web3.eth.sendTransaction({from:account, to:contractAddress, value:(amount*10**18), chain:"goerli"});
   
 }
@@ -307,4 +306,6 @@ let ethBalance = document.getElementById("eth-balance")
  }
 
 
+
+ 
  

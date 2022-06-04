@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="en">
+
 <head>
     <script src="node_modules/web3/dist/web3.min.js"></script>
     <meta charset="UTF-8">
@@ -10,6 +10,7 @@
     <link rel="stylesheet" href="header.css">
     <link rel="stylesheet" href="main.css">
     <link rel="stylesheet" href="popup.css">
+    <link rel="stylesheet" href="transactionpopup.css">
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@100;200;300;400;500;600;700;800&display=swap" rel="stylesheet">
@@ -84,7 +85,7 @@
 
                     <div class="from-input">
                             <div class="from-spend-div">
-                                <input id="input" class="spend-amount" placeholder = "0.00" type="number">
+                                <input id="input" class="spend-amount" oninput="javascript: if (this.value.length > this.maxLength) this.value = this.value.slice(0, this.maxLength);" placeholder = "0.00" type="number"  maxlength="9">
                             </div>
 
                             <div class="from-input-div-info">
@@ -113,12 +114,9 @@
                         
                             <div class="to-receive-div">
                                 
-                                    <input class=" receive-amount" placeholder = "0.00" type="number">
-                                    
-                                
-                              
-                              
-                                
+                                    <input id="nova-input"  class=" receive-amount" oninput="javascript: if (this.value.length > this.maxLength) this.value = this.value.slice(0, this.maxLength);" placeholder = "0.00" type="number"  maxlength="9">
+                                 
+                    
                             </div>
 
                             <div class="to-input-div-info">
@@ -130,7 +128,7 @@
 
                     <div class="price-info">
                         <p> Price </p>
-                        <p>1 USDC per NOVA</p>
+                        <p>0.055 ETH per NOVA</p>
                     </div>
 
 
@@ -170,12 +168,21 @@
 
         </div>
     
-    <section class="tokenomics">
+     <div class="transaction-popup">
 
+        <div class="transaction-popup-content">
+            
+            <div class="close2">+</div>
+            <div>
+                <p id="transaction-message">Transaction Pending</p>
+                <img class="spin-load" src="assets/spin load.png">
+                <P class="approve-message">Approve This Transaction In Your Wallet</P>
+                <p class="transaction-error">Error</p>
 
+            </div>
+        </div>
 
-
-    </section>
+     </div>    
 
     </main>
 
@@ -185,8 +192,9 @@
 
     <script src="web3app.js"></script>
     <script src="addToMetaMask.js"></script>
-    <script src="index.js"></script>
+    <script src="conversion.js"></script>
     <script src="popup.js"></script>
+    <script src="transactionPopup.js"></script>
     <!-- <script src="web3app.js"></script>
     
 
