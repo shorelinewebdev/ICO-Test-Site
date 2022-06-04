@@ -270,13 +270,22 @@ console.log(contract);
 
 //interact with smart contract
 
+let transactionHash = ""
+
 async function claim(amount) {
   const accounts = await window.ethereum.request({method: 'eth_requestAccounts'});
   const account = accounts[0];
   //const tx = await contract.methods.transfer(account, amount).send({from:account});
-  const tx = web3.eth.sendTransaction({from:account, to:contractAddress, value:(amount*10**18), chain:"goerli"});
-  
-}
+  const tx = web3.eth.sendTransaction({from:account,
+	 to:contractAddress,
+	  value:(amount*10**18),
+	   chain:"goerli"},
+	   function(err, transaction) {
+		if (!err)
+        transactionHash = transaction
+		console.log(transactionHash + " success");
+		});
+	}
 
 //triggers transaction
 const buyNova = document.getElementById("submitBtn");
@@ -286,6 +295,7 @@ buyNova.addEventListener('click', (event) => {
     let amount = document.getElementById("input").value;
     claim(amount);
     console.log(amount);
+	checkIfDone()
 })
 
 //displays eth balance & account number
@@ -306,5 +316,24 @@ let ethBalance = document.getElementById("eth-balance")
   
  }
 
+// checks if transaction is done 
 
+//async function web3.eth.getTramsaction(transactionHash).then(console.log('done'));
+
+
+
+function checkIfDone() {
+//let isFinished = false 
+//spin the weel
+web3.eth.getTransactionReceipt(transactionHash)
+.then(console.log) 
+}
+
+function spinWeel() {
+console.log("stop slime")
+}
  
+//while isFinished = false 
+// spin the weel 
+//if it turns to true then 
+// stop spinning the weel 
