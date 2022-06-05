@@ -29,7 +29,7 @@ async function connect() {
     }
 
     
-const contractAddress = "0x56F808F58b9F2874F26d289208e8458987418c23"; //contract address
+const contractAddress = "0x929fAB33EA6A6911da4821a14f052FE377cc27e6"; //contract address
 
 
 // the smart contract ABI with the contract address toghether in a variable
@@ -270,7 +270,7 @@ console.log(contract);
 
 //interact with smart contract
 
-let transactionHash = ""
+let hash = ""
 
 async function claim(amount) {
   const accounts = await window.ethereum.request({method: 'eth_requestAccounts'});
@@ -280,11 +280,11 @@ async function claim(amount) {
 	 to:contractAddress,
 	  value:(amount*10**18),
 	   chain:"goerli"},
-	   function(err, transaction) {
+	   function(err, hash) {
 		if (!err)
-        transactionHash = transaction
-		console.log(transactionHash + " success");
-		});
+		console.log("it works" + hash); // not called awaits send transaction 
+	    checkTx(hash);
+	});
 	}
 
 //triggers transaction
@@ -295,7 +295,6 @@ buyNova.addEventListener('click', (event) => {
     let amount = document.getElementById("input").value;
     claim(amount);
     console.log(amount);
-	checkIfDone()
 })
 
 //displays eth balance & account number
@@ -316,24 +315,42 @@ let ethBalance = document.getElementById("eth-balance")
   
  }
 
-// checks if transaction is done 
+ let txHash = ethereum.request({
+	method: 'eth_sendTransaction',
+	params: [tx],
+}).then((hash) => {
+	console.log(hash)
+}).catch((err) => console.log(err))
 
-//async function web3.eth.getTramsaction(transactionHash).then(console.log('done'));
 
+function checkTx(hash) {
+    let statusElement = document.getElementById("transaction-message")
 
+    // Log which tx hash we're checking
+    console.log("Waiting for tx " + hash)
+    //statusElement.innerHTML = "Waiting"
 
-function checkIfDone() {
-//let isFinished = false 
-//spin the weel
-web3.eth.getTransactionReceipt(transactionHash)
-.then(console.log) 
+    // Set interval to regularly check if we can get a receipt
+    let interval = setInterval(() => {
+        console.log(1)
+        web3.eth.getTransactionReceipt(hash, (err, receipt) => {
+			console.log(2)
+			console.log(receipt)
+            // If we've got a receipt, check status and log / change text accordingly
+            if (receipt) {
+                
+                console.log("Gotten receipt2")
+                if (receipt.status === true) {
+                    console.log(receipt)
+                    statusElement.innerHTML = "Success"
+                } else if (receipt.status === false) {
+                    console.log("Tx failed")
+                    statusElement.innerHTML = "Failed"
+                }
+
+                // Clear interval
+                clearInterval(interval)
+            }
+        })
+    }, 5000)
 }
-
-function spinWeel() {
-console.log("stop slime")
-}
- 
-//while isFinished = false 
-// spin the weel 
-//if it turns to true then 
-// stop spinning the weel 

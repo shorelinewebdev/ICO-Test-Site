@@ -68,7 +68,7 @@
 }
 
 .spend-amount {
-    width: 100px;
+    width: 200px;
     background-color: blue;
     border: none;
     color: white;
@@ -160,7 +160,7 @@ input[type=number] {
 }
 
 .receive-amount {
-    width: 100px;
+    width: 200px;
     background-color: blue;
     border: none;
     color: white;
