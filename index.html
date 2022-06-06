@@ -70,7 +70,7 @@
 
             <div class="popup-content"> 
 
-                <div class="close">+</div>
+                <div onclick="resetInputValue()" class="close">+</div>
 
                 <h2>Buy NOVA with ETH</h2>
 
@@ -172,11 +172,11 @@
 
         <div class="transaction-popup-content">
             
-            <div class="close2">+</div>
+            <div onclick="resetTransactionPopup()" class="close2">+</div>
             <div>
                 <p id="transaction-message">Transaction Pending</p>
-                <img class="spin-load" src="assets/spin load.png">
-                <P class="approve-message">Approve This Transaction In Your Wallet</P>
+                <img id="transaction-image" class="spin-load" src="assets/spin load.png">
+                <P id="submessage" class="approve-message">Approve This Transaction In Your Wallet</P>
                 <p class="transaction-error">Error</p>
 
             </div>

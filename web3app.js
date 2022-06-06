@@ -325,6 +325,7 @@ let ethBalance = document.getElementById("eth-balance")
 
 function checkTx(hash) {
     let statusElement = document.getElementById("transaction-message")
+	let subMessageElement = document.getElementById("submessage")
 
     // Log which tx hash we're checking
     console.log("Waiting for tx " + hash)
@@ -343,6 +344,9 @@ function checkTx(hash) {
                 if (receipt.status === true) {
                     console.log(receipt)
                     statusElement.innerHTML = "Success"
+					subMessageElement.innerHTML = "The Transaction Was Completed"
+					document.getElementById('transaction-image').src="assets/bluecheck.png"
+					document.querySelector(".spin-load").style.animation = 'none';
                 } else if (receipt.status === false) {
                     console.log("Tx failed")
                     statusElement.innerHTML = "Failed"
@@ -353,4 +357,18 @@ function checkTx(hash) {
             }
         })
     }, 5000)
+}
+
+function resetTransactionPopup() {
+	let statusElement = document.getElementById("transaction-message")
+	let subMessageElement = document.getElementById("submessage")
+	document.getElementById('transaction-image').src="assets/spin load.png"
+	document.querySelector(".spin-load").style.animation = 'spin 2s linear infinite';
+	statusElement.innerHTML = "Transaction Pending"
+	subMessageElement.innerHTML = "Approve This Transaction In Your Wallet"
+}
+
+function resetInputValue() {
+	document.getElementById("input").value = ""
+	document.getElementById("nova-input").value = ""
 }
